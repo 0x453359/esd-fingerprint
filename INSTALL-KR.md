@@ -62,10 +62,13 @@ rsyslog 등을 사용하여 /var/log/rsyslog/ 와 같은 디렉터리에 eve.jso
 ```
 
 # 설치
-./esd_install.sh
+/usr/local/bin/esd/esd_install.sh
 
 ## 구동
-./esdd
+/usr/local/bin/esd/esdd
+
+## 로그 확인
+/var/log/esd/esd_log
 
 ## 파일 설명
  - tls_esd.lua: ESD 처리 프로세스
