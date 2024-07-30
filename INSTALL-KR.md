@@ -1,7 +1,7 @@
 # 필요 사항
  - 매니지먼트 포트의 인터넷 연결
  - Suricata IDS 5.0 이상
- - linux ripgrep
+ - ripgrep
  - lua 5.4 이상
  - luarocks
  - luafilesystem (luarocks install)
