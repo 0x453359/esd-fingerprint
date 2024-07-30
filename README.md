@@ -44,15 +44,15 @@ E3C Fingerprint는 ESD에서 스푸핑 탐지를 위한 주요 모듈입니다. 
   "fingerprint": {
     "csv_string": "769,771_47,53,156,157,4865,4866,4867,49171,49172,49195,49196,49199,49200,52392,52393_5,10:[23,24,29],11:[0],13:[1025,1027,1281,1283,1537,2052,2053,2054],16:[h2,http/1.1],18,23,27:[2],35,43:[771,772],45,51,2570,17513,35466,65037,65281",
     "csv_hash": "e9fb2b61d66e20b783bb7ec8",
-    "csv_last": "2024-07-30",
+    "csv_last": "2024-07-02",
     "lf_hash": "80a40546a84a401d3fbe6f33",
-    "lf_last": "2024-07-30",
+    "lf_last": "2024-07-02",
     "lf_total_count": 687,
     "lf_ratio": 100.0,
     "ff_hash": "eecd262c3ecab667b61ebb70",
     "ff_ratio": 14.8,
     "certification": "6b2fd0dabc922b3503a2b899",
-    "certification_last": "2024-07-30",
+    "certification_last": "2024-07-02",
     "certification_total_count": 95,
     "certification_ratio": 41.0
   },
