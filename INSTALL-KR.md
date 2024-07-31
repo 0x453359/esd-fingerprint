@@ -64,6 +64,28 @@ rsyslog 등을 사용하여 /var/log/rsyslog/ 와 같은 디렉터리에 eve.jso
 # 설치
 /usr/local/bin/esd/esd_install.sh
 
+# 설정
+``` bash
+DIRECTION: "outbound"
+# 현재는 outbound만 지원
+META_PATH: "/usr/local/bin/esd/metadata/"
+# ESD 구동에 필요한 정보 및 분석과 관련한 메타데이터가 저장되는 경로
+LOG_PATH: "/var/log/rsyslog/"
+# suricata의 eve.json 로그 수신하고 수집하는 경로
+LOG_PREFIX: "127.0.0.1_messages_"
+# 로그 식별자
+LOG_DIV: 100000
+# 로그의 분할 라인 수
+# 값이 너무 큰 경우 성능에 영향을 끼칠 수 있으며 너무 작은 경우에는 분할 파일이 많아짐
+# 1GB 대역폭의 경우 1000000 권장 
+POLICY: "SSN_TLS_SH"
+# 동일 세션의 로그에서 실질적으로 기준이 되는 로그
+THREAD: 4
+# 멀티프로세스 지원, 프로세스의 수
+ALERT_LOG: "/var/log/esd/esd_log"
+# alert 로그가 저장되는 경로 및 파일 이름
+```
+
 ## 구동
 /usr/local/bin/esd/esdd
 
