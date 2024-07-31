@@ -78,6 +78,7 @@ messages
 		 - unusual_encrypted_length_in_http/2: HTTP/2 트래픽에서 간헐적으로 발생할 수 있으나 일반적이지 않은 암호화 사이즈
 		 - unknown_encrypted_length_in_http/2: HTTP/2 트래픽에서 발생하기 어려운 암호화 사이즈
 		 - unusual_encryption_size: TLS 트래픽에서 발생하기 어려운 암호화 사이즈
+   		 - unusual_0rtt_size: TLS 1.3 0-RTT에서 발생하기 어려운 크기의 데이터 사이즈
 
    		information
    		 - client_send_certificate: TLS 트래픽에서 클라이언트가 자신의 인증서를 서버로 전송
