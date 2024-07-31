@@ -3,9 +3,9 @@
 
 암호화 기반 공격 대응
  - 주로 Unknown 대응(IP, Hostname)과 블랙리스트(JA3) 방식이 많이 사용<br/>
- - 평판 조회는 위협을 빠르게 식별하지만, 평가지표가 없거나 CSP의 호스팅을 사용할 경우 대응 불가<br/>
+ - 평판 조회는 위협을 빠르게 식별하지만, CSP 호스팅과 같은 경우 평펀 대응의 어려움 존재<br/>
  - JA3는 여전히 블랙리스트 방식에서 유용하게 사용<br/>
-   - 그러나 JA3를 동일하게 구성하는 스푸핑 행위에서는 대응 불가<br/>
+   - JA3를 동일하게 구성하는 스푸핑 행위에서는 대응 불가<br/>
 
 <br/>
 
@@ -13,7 +13,7 @@
 
 # ESD (Encrypted Spoofing Detection)
 ESD는 Unknown 기반 탐지 시스템으로 트래픽에서 분석한 내용을 기반으로 희귀도 값을 제공합니다.<br/>
-ESD는 트래픽 분석을 위해 Suricata IDS와 연동됩니다. Suricata IDS를 패킷 수집 센서로 사용하며, 최종 분석을 ESD에서 처리합니다.<br/>
+ESD는 트래픽 분석을 위해 Suricata IDS와 연동됩니다. Suricata IDS를 패킷 수집 센서로 사용하며, 수집한 TCP 세션을 ESD에서 재조합하고 위협을 분석합니다.<br/>
 ESD는 악성 행위가 탐지를 회피하기 위해 일반적인 사용자의 암호화 스트림으로 스푸핑하는 행위의 탐지 정보를 제공합니다.<br/>
 스푸핑 탐지에는 주요 모듈(E3C)에 의한 탐지와 암호화 트래픽에서의 일반적이지 않은 행위 정보가 추가됩니다.
 
@@ -71,8 +71,21 @@ E3C Fingerprint는 ESD에서 스푸핑 탐지를 위한 주요 모듈입니다. 
 
 ```
 messages
- - suspicious: 트래픽에서 발생하기 어려운 행위로 인한 메시지
- - information: 일반적으로 발생하지 않으나 정상 트래픽에서도 종종 발생할 수 있는 행위
+ - suspicious: 트래픽에서 발생하기 어려운 행위로 인한 메시지입니다.
+ - information: 일반적으로 발생하지 않으나 정상 트래픽에서도 종종 발생할 수 있는 행위에 대한 정보를 제공합니다.
+
+		suspicious
+		 - unusual_encrypted_length_in_http/2: HTTP/2 트래픽에서 간헐적으로 발생할 수 있으나 일반적이지 않은 암호화 사이즈
+		 - unknown_encrypted_length_in_http/2: HTTP/2 트래픽에서 발생하기 어려운 암호화 사이즈
+		 - unusual_encryption_size: TLS 트래픽에서 발생하기 어려운 암호화 사이즈
+
+   		information
+   		 - client_send_certificate: TLS 트래픽에서 클라이언트가 자신의 인증서를 서버로 전송
+		 - multiple_duplicate_record_length: 동일한 크기의 TLS 데이터가 반복적으로 전송
+		 - new_domain_in_esd: ESD 시스템에서 새롭게 확인된 도메인 정보
+		 - new_csv_in_domain: 도메인에서 새롭게 확인된 CSV 정보
+
+### lf hash
 
 ### CSV
 
